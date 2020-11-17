@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::view('/', 'welcome');
 */
 
 Route::redirect('/', '/login');
@@ -35,3 +36,6 @@ Route::group([
 ], function () {
     Route::view('/{any?}', 'layouts.admin.app')->name('dashboard')->where('any', '.*');
 });
+// Route::group(['middleware' => 'cors'], function () {
+// Route::get('user-sandi-api', 'User\SandiUserApiController@index');
+// });
